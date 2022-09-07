@@ -1,0 +1,40 @@
+BD Script// Profile
+
+$nomention
+$title[**PROFILE**]
+$userInfo[**Username:** {username}#{discriminator}
+**User Nickname:** <@$mentioned[<]>
+**User ID:** {ID}
+**DM Status:** $replaceText[$replaceText[$isUserDMEnabled[$mentioned[<]];false;Closed;1];true;Open;1]
+**Rank:** <@&$highestRole[$mentioned[<]]>
+**Regiment:** <@&$lowestRole[$mentioned[<]]>
+**Warnings:** $getUserVar[warnrate;$mentioned[1]]
+**Creation Date:** $creationDate[$mentioned[<]]
+**Verified:** $hasRole[$mentioned[<];1016764230877327411]
+$footerIcon[$serverIcon]]
+$footer[By British Army | V 1.0]
+$color[00fffc]
+$addTimestamp
+$suppressErrors
+$deletecommand
+____________________
+BD Script// Warnings System
+
+-Warnrate [Variable]
+
+$nomention
+$allowMention
+$onlyAdmin[Sorry, you can't use this command.]
+$argsCheck[>2;Please mention user and reason.]
+$title[Warnings!]
+$description[<@$mentioned[1]> has been warned by <@$authorID>.
+ 
+Reason: `$noMentionMessage`]
+$footer[Warned by $username]
+$addTimestamp
+$color[#6e0a0a]
+ 
+$setUserVar[warnrate;$sum[$getUserVar[warnrate;$mentioned[1]];1];$mentioned[1]]
+____________________
+
+Ⓒ 2022 Pyae Sone Reserved 
